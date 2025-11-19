@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Management Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #007bff;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            margin: 20px 0;
+        }
+        nav a {
+            margin: 0 15px;
+            color: #007bff;
+            text-decoration: none;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background: #007bff;
+            color: #fff;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        .form-section {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+        }
+        .form-section input[type="text"],
+        .form-section input[type="email"],
+        .form-section input[type="number"],
+        .form-section textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-section input[type="submit"] {
+            background: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .form-section input[type="submit"]:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Health Management System</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section class="form-section" id="home">
+            <h2>Welcome to the Health Management System</h2>
+            <p>Manage your health effectively with our tools and resources.</p>
+        </section>
+
+        <section class="form-section" id="services">
+            <h2>Services</h2>
+            <p>We offer a variety of health management services.</p>
+        </section>
+
+        <section class="form-section" id="contact">
+            <h2>Contact Us</h2>
+            <form id="contactForm">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <input type="number" id="age" placeholder="Your Age" required>
+                <textarea id="message" placeholder="Your Message" required></textarea>
+                <input type="submit" value="Submit">
+            </form>
+            <div id="responseMessage"></div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Health Management System</p>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const age = document.getElementById('age').value;
+            const message = document.getElementById('message').value;
+
+            if (name && email && age && message) {
+                document.getElementById('responseMessage').innerText = `Thank you, ${name}! Your message has been received.`;
+                document.getElementById('contactForm').reset();
+            } else {
+                document.getElementById('responseMessage').innerText = 'Please fill in all fields.';
+            }
+        });
+    </script>
+</body>
+</html>
